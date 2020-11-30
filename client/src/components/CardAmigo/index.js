@@ -236,7 +236,11 @@ const CardAmigo = ({
       authUserFriendlistIds[0] !== "INIT" &&
       idsOfUsersThatYouAdded.includes(idUsuario)
     ) {
-      return <p className="text-success">Já adicionado.</p>;
+      return (
+        <p className="text-success" style={{ fontSize: "0.7rem" }}>
+          Já adicionado.
+        </p>
+      );
     } else if (authUserFriendlistIds[0] !== "INIT") {
       return (
         <div className="d-flex flex-column justify-content-center align-items-center">
@@ -254,12 +258,6 @@ const CardAmigo = ({
   if (mode === "OTHER-PROFILE") {
     return getFriendlistCardMessageOrButton();
   }
-
-  const getUserDescription = (desc) => {
-    if (!desc) return "";
-    if (desc.length <= 53) return desc;
-    return desc.slice(0, 50) + "...";
-  };
 
   return (
     <>
@@ -280,7 +278,7 @@ const CardAmigo = ({
                   {nome} {sobrenome}
                 </Link>
               </h5>
-              <p>{getUserDescription(descricao)}</p>
+              <p className="my-friend-card-description">{descricao}</p>
             </div>
           </div>
         </div>

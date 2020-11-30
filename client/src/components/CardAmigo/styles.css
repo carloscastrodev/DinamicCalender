@@ -14,6 +14,14 @@
   word-wrap: break-word;
 }
 
+.my-friend-card-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 @media (max-width: 576px) {
   .my-friend-card {
     flex-direction: column;
