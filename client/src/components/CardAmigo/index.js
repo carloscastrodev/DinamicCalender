@@ -206,20 +206,25 @@ const CardAmigo = ({
   const getFriendlistCardMessageOrButton = () => {
     if (loadingAuthUserFriendList) return null;
     if (authState.userInfo && idUsuario === authState.userInfo.idUsuario) {
-      return <p className="text-success">Você.</p>;
+      return (
+        <p className="text-success" style={{ fontSize: "0.7rem" }}>
+          Você.
+        </p>
+      );
     }
     if (authUserFriendlistIds.includes(idUsuario)) {
-      return <p className="text-success">Já é seu amigo.</p>;
+      return (
+        <p className="text-success" style={{ fontSize: "0.7rem" }}>
+          Já é seu amigo.
+        </p>
+      );
     } else if (
       authUserFriendlistIds[0] !== "INIT" &&
       idsOfUsersThatAddedYou.includes(idUsuario)
     ) {
       return (
         <div className="d-flex flex-column">
-          <p
-            className="text-success m-0 p-1"
-            style={{ borderTop: "1px white solid" }}
-          >
+          <p className="text-success m-0 p-1" style={{ fontSize: "0.7rem" }}>
             Quer ser seu amigo
           </p>
           <div className="d-flex justify-content-center" style={{ gap: "5px" }}>
@@ -235,10 +240,7 @@ const CardAmigo = ({
     } else if (authUserFriendlistIds[0] !== "INIT") {
       return (
         <div className="d-flex flex-column justify-content-center align-items-center">
-          <p
-            className="text-primary m-0 p-1"
-            style={{ borderTop: "1px white solid" }}
-          >
+          <p className="text-primary m-0 p-1" style={{ fontSize: "0.7rem" }}>
             Adicionar como amigo?
           </p>
           <SearchButton />
