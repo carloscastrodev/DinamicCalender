@@ -22,7 +22,7 @@ export default function EditarPerfil() {
   const storageService = new FirebaseStorageService();
 
   const getFileNameFromFirebaseUrl = (url) => {
-    if (!url) return null;
+    if (!url || !url.match("images%2F")) return null;
     return url.split("images%2F")[1].split("?")[0];
   };
 
