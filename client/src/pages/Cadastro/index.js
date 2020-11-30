@@ -13,14 +13,20 @@ export default function Cadastro(props) {
     nome: "",
     sobrenome: "",
     email: "",
+    externalAvatarUrl: null
   };
+
+  try{
+    user.externalAvatarUrl = props.location.state.ssoData.avatarUrl;
+  } catch (e) {}
+
   try {
     user.nome = props.location.state.ssoData.nome;
     user.sobrenome = props.location.state.ssoData.sobrenome;
     user.email = props.location.state.ssoData.email;
   } catch (e) {}
 
-  const externalAvatarUrl = props.location.state.ssoData.avatarUrl;
+  const externalAvatarUrl = user.externalAvatarUrl;
 
   const [nome, setNome] = useState(user.nome);
   const [sobrenome, setSobrenome] = useState(user.sobrenome);
@@ -118,7 +124,7 @@ export default function Cadastro(props) {
         id="container-base-cadastro"
       >
         <div className="align-self-center container-md text-center col-lg-5">
-          <form className="form-signin" onSubmit={handleFormSubmit}>
+          <form className="form-signin" onSubmit={handleFormSubmit} autoComplete="off">
             <img className="mb-3" src={Logo_Black} alt="" width="80" />
             <h2 className="h4 mb-1 font-weight-normal">Cadastro</h2>
             <p className="mb-0 text-danger">{formError}</p>
