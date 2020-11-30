@@ -253,6 +253,12 @@ const CardAmigo = ({
     return getFriendlistCardMessageOrButton();
   }
 
+  const getUserDescription = (desc) => {
+    if (!desc) return "";
+    if (desc.length <= 53) return desc;
+    return desc.slice(0, 50) + "...";
+  };
+
   return (
     <>
       {confirmDeleteFriendModalVisible && <ConfirmDeleteFriendModal />}
@@ -272,7 +278,7 @@ const CardAmigo = ({
                   {nome} {sobrenome}
                 </Link>
               </h5>
-              <p>{descricao}</p>
+              <p>{getUserDescription(descricao)}</p>
             </div>
           </div>
         </div>
